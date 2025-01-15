@@ -1,0 +1,17 @@
+All commands in this file are not exactly same. You need to change names(eg: python-django) and port numbers according to dockercompose, dockerfile and Docker Desktop.
+
+Part#1
+docker build --tag python-django .
+docker run --publish 8000:8000 python-django
+
+Part#2
+docker-compose build
+docker-compose run --rm app django-admin startproject core.
+docker-compose up
+
+Part#3
+docker-compose build
+docker-compose run --rm app django-admin startproject core .
+docker-compose up
+docker exec -it django-app /bin/bash
+
