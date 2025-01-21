@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  app2:
+    build:  .
+    volumes:
+      - .:/django
+    ports:
+      - 8004:8004
+    image:  app2:django
+    container_name: django_container5
+    command: python manage.py runserver 0.0.0.0:8004
+    depends_on:
+      - db3
+  db3:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: 'django-app-db'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    volumes:
+      - ./data/mysql/db:/var/lib/mysql
+    
